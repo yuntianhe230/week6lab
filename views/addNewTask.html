@@ -1,0 +1,27 @@
+<html>
+<body>
+    <link rel="stylesheet" href="styles.css">
+    <h3><a href="/listTasks">List all tasks</a></br>
+        <a href="/">Homepage</a>
+    </h3>
+    <form action="/newTask" method="POST">
+        <label>Task name</label>
+        <input type ="text" name="taskName"/></br>
+        <label>Assign to</label>
+        <input type="text" name="assignTo"/></br>
+        <label>Task due date</label>
+        <input type="date" name="dueDate"/></br>
+        <label>Task status</label>
+        
+        <select name="taskStatus">
+            <OPTION value="complete">complete</OPTION>
+            <OPTION value="inprogress">inprogress</OPTION>
+        </select></br>
+        <label>Task Description</label>
+        <input type="text" name="taskDescription"/></br>
+        <button type="submit">Submit</button>
+
+    </form>
+    
+</body>
+</html>
