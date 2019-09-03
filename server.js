@@ -54,6 +54,7 @@ app.post('/newTask', function (req, res) {
 
     res.redirect('listTasks');
     //res.send("you have added a task");
+    //
 });
 //Update a task: 
 app.get('/updateatask', function (req, res) {
