@@ -91,9 +91,17 @@ app.post('/deleteatask', function (req, res) {
     res.redirect('/listTasks');// redirect the client to list users page
 });
 
-app.get('/delecompletedtasks', function (req, res) {
-    let filter = { taskStatus: "complete" };
-    coll.deleteMany(filter);
+app.get('/deleteOldcomplete', function (req, res) {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;  
+    let filter = { taskStatus: "complete",dueDate:{ $gt: today } };
+    coll.deleteMany(filter,function(err,obj){
+
+    });
     res.redirect('/listTasks');
 });
 app.listen(8085);
