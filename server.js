@@ -97,8 +97,8 @@ app.get('/deleteOldcomplete', function (req, res) {
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
 
-    today = mm + '/' + dd + '/' + yyyy;  
-    let filter = { taskStatus: "complete",dueDate:{ $gt: today } };
+    today = yyyy+'-'+ mm + '-' + dd;  
+    let filter = { $and:[{taskStatus: 'complete'},{dueDate:{ $lt: today }}] };
     coll.deleteMany(filter,function(err,obj){
 
     });
